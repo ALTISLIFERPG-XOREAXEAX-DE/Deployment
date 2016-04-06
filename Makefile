@@ -6,6 +6,7 @@ all: testing
 
 clean:
 	rm -rfv /cygdrive/c/CYGWIN_RELEASES
+	make -C ../Mission clean
 
 .PHONY: production
 production:
@@ -13,4 +14,5 @@ production:
 
 .PHONY: testing
 testing:
+	make -C ../Mission
 	@$(RELEASE)
