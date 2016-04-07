@@ -63,6 +63,16 @@ for DIRECTORY in "Altis_Life.Altis" "life_server"; do
 
 done
 
+SERVER="127.0.0.1"
+
+if [[ "testing" == "${RELEASE}" ]]; then
+  SERVER="192.168.4.114"
+fi
+
+if [[ "production" == "${RELEASE}" ]]; then
+  SERVER="altisliferpg.xoreaxeax.de"
+fi
+
 #
 # deploy to server
 #
@@ -70,16 +80,18 @@ TARGET_DIRECTORY="/home/steam/Steam/steamapps/common/Arma\ 3\ Server"
 
 rsync -Pavpx \
     "${RELEASE_DIRECTORY}/Altis_Life.Altis.pbo" \
-      "steam@altisliferpg.xoreaxeax.de:${TARGET_DIRECTORY}/mpmissions/."
+      "steam@${SERVER}:${TARGET_DIRECTORY}/mpmissions/."
 
 rsync -Pavpx \
           "${RELEASE_DIRECTORY}/life_server.pbo" \
-                  "steam@altisliferpg.xoreaxeax.de:${TARGET_DIRECTORY}/@life_server/addons/."
+                  "steam@${SERVER}:${TARGET_DIRECTORY}/@life_server/addons/."
 
 #
 # restart arma3 on betaserver
 #
-ssh steam@altisliferpg.xoreaxeax.de -t make -C /home/steam restart
+if [[ "testing" == "${RELEASE}" ]]; then
+  ssh steam@${SERVER} -t make -C /home/steam restart
+fi
 
 sleep 1
 
