@@ -104,15 +104,15 @@ echo
 
 sha1sum ${RELEASE_DIRECTORY}/Altis_Life.Altis.pbo
 ls -al ${RELEASE_DIRECTORY}/Altis_Life.Altis.pbo
-ssh -q steam@altisliferpg.xoreaxeax.de -t sha1sum "${TARGET_DIRECTORY}/mpmissions/Altis_Life.Altis.pbo"
-ssh -q steam@altisliferpg.xoreaxeax.de -t ls -al "${TARGET_DIRECTORY}/mpmissions/Altis_Life.Altis.pbo"
+ssh -q steam@${SERVER} -t sha1sum "${TARGET_DIRECTORY}/mpmissions/Altis_Life.Altis.pbo"
+ssh -q steam@${SERVER} -t ls -al "${TARGET_DIRECTORY}/mpmissions/Altis_Life.Altis.pbo"
 
 echo
 
 sha1sum ${RELEASE_DIRECTORY}/life_server.pbo
 ls -al ${RELEASE_DIRECTORY}/life_server.pbo
-ssh -q steam@altisliferpg.xoreaxeax.de -t sha1sum "${TARGET_DIRECTORY}/@life_server/addons/life_server.pbo"
-ssh -q steam@altisliferpg.xoreaxeax.de -t ls -al "${TARGET_DIRECTORY}/@life_server/addons/life_server.pbo"
+ssh -q steam@${SERVER} -t sha1sum "${TARGET_DIRECTORY}/@life_server/addons/life_server.pbo"
+ssh -q steam@${SERVER} -t ls -al "${TARGET_DIRECTORY}/@life_server/addons/life_server.pbo"
 
 exit 0
 
