@@ -11,6 +11,7 @@ clean:
 .PHONY: production
 production:
 	@$(RELEASE)
+	make -C ../Mission Homepage
 
 .PHONY: testing
 testing:
