@@ -10,10 +10,11 @@ clean:
 
 .PHONY: production
 production:
+	make -C ../Mission
 	@$(RELEASE)
-	make -C ../Mission Homepage
 
 .PHONY: testing
 testing:
 	make -C ../Mission
 	@$(RELEASE)
+
