@@ -46,7 +46,7 @@ for DIRECTORY in "Altis_Life.Altis" "life_server"; do
   test -d "${SOURCE_TREE}/${DIRECTORY}" && rsync -Pavpx \
     "${SOURCE_TREE}/${DIRECTORY}/." \
     "${RELEASE_DIRECTORY}/${DIRECTORY}/."
-	
+
   #
   # build the PBO files
   #
