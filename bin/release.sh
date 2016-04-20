@@ -33,6 +33,14 @@ test -f "${SOURCE_MISSION}/mission.sqm" && rsync -Pavpx \
   "${RELEASE_DIRECTORY}/Altis_Life.Altis/."
 
 #
+# config the Config_vItems.hpp
+#
+test -f "${SOURCE_MISSION}/tmp/Config_vItems.hpp" && rsync -Pavpx \
+  "${SOURCE_MISSION}/tmp/Config_vItems.hpp" \
+  "${RELEASE_DIRECTORY}/Altis_Life.Altis/."
+
+
+#
 # copy the textures
 #
 test -d "${SOURCE_TEXTURES}/textures" && rsync -Pavpx \
